@@ -1,0 +1,160 @@
+2018-05-09 18:00:45 pid:1 ArgumentCountError: Too few arguments to function WebWorker\App::{closure}(), 0 passed and exactly 2 expected in F:\cloud\projects\api\http.php:11
+Stack trace:
+#0 [internal function]: WebWorker\App->{closure}()
+#1 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(172): call_user_func(Object(Closure))
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(259): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(20): Workerman\Worker::runAll()
+#12 {main}
+2018-05-09 18:00:45 pid:1 Worker process terminated
+2018-05-09 18:00:47 pid:1 ArgumentCountError: Too few arguments to function WebWorker\App::{closure}(), 0 passed and exactly 2 expected in F:\cloud\projects\api\http.php:11
+Stack trace:
+#0 [internal function]: WebWorker\App->{closure}()
+#1 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(172): call_user_func(Object(Closure))
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(259): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(20): Workerman\Worker::runAll()
+#12 {main}
+2018-05-09 18:00:47 pid:1 Worker process terminated
+2018-05-09 18:01:13 pid:1 ArgumentCountError: Too few arguments to function WebWorker\App::{closure}(), 0 passed and exactly 2 expected in F:\cloud\projects\api\http.php:11
+Stack trace:
+#0 [internal function]: WebWorker\App->{closure}()
+#1 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(172): call_user_func(Object(Closure))
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\vendor\xtgxiso\webworker\App.php(259): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(19): Workerman\Worker::runAll()
+#12 {main}
+2018-05-09 18:01:13 pid:1 Worker process terminated
+2018-05-10 15:53:14 pid:1 Error: Call to a member function json() on null in F:\cloud\projects\api\http.php:20
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(50): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(70): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(24): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 15:53:14 pid:1 Worker process terminated
+2018-05-10 15:53:50 pid:1 Error: Call to a member function json() on null in F:\cloud\projects\api\http.php:20
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(50): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(70): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(24): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 15:53:50 pid:1 Worker process terminated
+2018-05-10 15:53:57 pid:1 Error: Using $this when not in object context in F:\cloud\projects\api\http.php:20
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(50): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(70): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(24): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 15:53:57 pid:1 Worker process terminated
+2018-05-10 15:54:37 pid:1 Error: Call to a member function json() on null in F:\cloud\projects\api\http.php:20
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(50): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(70): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(24): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 15:54:37 pid:1 Worker process terminated
+2018-05-10 15:55:13 pid:1 Error: Class 'Http' not found in F:\cloud\projects\api\http.php:20
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(39): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(59): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(25): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 15:55:13 pid:1 Worker process terminated
+2018-05-10 16:13:28 pid:1 Error: Class 'HttpCache' not found in F:\cloud\projects\api\http.php:21
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(39): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(59): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(27): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 16:13:28 pid:1 Worker process terminated
+2018-05-10 16:13:44 pid:1 Error: Class 'HttpCache' not found in F:\cloud\projects\api\http.php:21
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 F:\cloud\projects\api\app.php(39): call_user_func(Object(Closure), Array)
+#2 [internal function]: WebWorker\App->onClientMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\cloud\projects\api\vendor\workerman\workerman\Connection\TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 F:\cloud\projects\api\vendor\workerman\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(2130): Workerman\Events\Select->loop()
+#7 F:\cloud\projects\api\app.php(59): Workerman\Worker->run()
+#8 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1189): WebWorker\App->run()
+#9 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(1132): Workerman\Worker::forkWorkersForWindows()
+#10 F:\cloud\projects\api\vendor\workerman\workerman\Worker.php(466): Workerman\Worker::forkWorkers()
+#11 F:\cloud\projects\api\http.php(27): Workerman\Worker::runAll()
+#12 {main}
+2018-05-10 16:13:44 pid:1 Worker process terminated
