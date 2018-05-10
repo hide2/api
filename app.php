@@ -1,6 +1,4 @@
 <?php
-namespace WebWorker;
-
 use Workerman\Worker;
 
 class App extends Worker
@@ -59,4 +57,3 @@ class App extends Worker
 		parent::run();
 	}
 }
-

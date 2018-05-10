@@ -2,7 +2,6 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app.php';
 use Workerman\Protocols\Http;
-use WebWorker\App;
 
 $app = new App("http://0.0.0.0:2345");
 $app->count = 4;
