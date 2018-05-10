@@ -43,8 +43,8 @@ Linux下安装PHP7
 ========
 ```
 yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_64 php70w-ldap.x86_64 php70w-mbstring.x86_64 php70w-mcrypt.x86_64 php70w-mysql.x86_64 php70w-pdo.x86_64 php70w-fpm -y
-安装Workerman的pcntl和posix扩展、event或者libevent扩展: http://doc.workerman.net/315116
 ```
+安装Workerman的pcntl和posix扩展、event或者libevent扩展: http://doc.workerman.net/315116
 
 示例代码
 ========
