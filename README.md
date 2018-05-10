@@ -84,5 +84,5 @@ php http.php start
 ```
 压力测试
 ```
-ab -n 1000000 -c 1000 http://localhost:2345/api
+ab -n 1000000 -c 1000 -k http://localhost:2345/api
 ```
