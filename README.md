@@ -13,7 +13,7 @@ https://getcomposer.org/Composer-Setup.exe
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 
-Windows下安装PHP
+Windows下安装PHP7
 ========
 ```
 下载最新PHP7.x http://windows.php.net/download/
