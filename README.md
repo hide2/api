@@ -52,7 +52,6 @@ yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_6
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app.php';
-use Workerman\Worker;
 use Workerman\Protocols\Http;
 use WebWorker\App;
 
@@ -76,7 +75,7 @@ $app->get('/api', function($req){
 });
 
 // run all workers
-Worker::runAll();
+App::runAll();
 ```
 
 启动服务
