@@ -1,12 +1,14 @@
 API
 ========
 High performance api service
+
 单服开10+Worker，轻松支撑C100K请求
 
 Windows下安装Composer
 ========
 下载并执行安装
-https://getcomposer.org/Composer-Setup.exe
+`https://getcomposer.org/Composer-Setup.exe`
+
 使用中国镜像
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
