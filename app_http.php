@@ -1,5 +1,6 @@
 <?php
 use Workerman\Worker;
+use Workerman\Protocols\Http;
 
 class App extends Worker
 {
@@ -31,11 +32,12 @@ class App extends Worker
 			$req['params'] = $_POST;
 		}
 
+		Http::header("Content-Type: application/json");
 		if ($req['method'] == 'GET') {
 			$cb = $this->map_get[$req['path']];
 			if ($cb) {
 				$data = call_user_func($cb, $req);
-				$connection->send($data);
+				$connection->send(json_encode($data));
 			} else {
 				$connection->send('404');
 			}
@@ -43,7 +45,7 @@ class App extends Worker
 			$cb = $this->map_post[$req['path']];
 			if ($cb) {
 				$data = call_user_func($cb, $req);
-				$connection->send($data);
+				$connection->send(json_encode($data));
 			} else {
 				$connection->send('404');
 			}

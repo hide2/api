@@ -9,7 +9,6 @@ $wsapp->name = 'ws';
 $wsapp->on('api', function($params){
 	$data = array('name'=>'dad');
 	return $data;
-
 });
 
 WSApp::runAll();
