@@ -5,7 +5,7 @@ use Workerman\Protocols\Http;
 
 $app = new App("http://0.0.0.0:2345");
 $app->count = 4;
-$app->name = 'api';
+$app->name = 'http';
 
 $app->get('/', function($req){
 	return "66666";
