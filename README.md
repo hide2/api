@@ -83,22 +83,18 @@ App::runAll();
 /////////////////////////////////// websocket
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use Workerman\Worker;
+require_once __DIR__ . '/app_ws.php';
+use Workerman\Protocols\Http;
 
-$ws_worker = new Worker("websocket://0.0.0.0:2000");
-$ws_worker->count = 4;
-$ws_worker->name = 'ws';
+$wsapp = new WSApp("websocket://0.0.0.0:2000");
+$wsapp->count = 4;
+$wsapp->name = 'ws';
 
-$ws_worker->onMessage = function($connection, $data)
-{
-	$data = json_decode($data);
-	var_dump($data->method);
-	var_dump($data->params);
-	$connection->send(json_encode($data));
-};
+$wsapp->on('api', function($params){
+	$data = array('name'=>'dad');
+	return $data;
 
-// 运行worker
-Worker::runAll();
+});
 ```
 
 启动服务

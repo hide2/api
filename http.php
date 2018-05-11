@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app.php';
+require_once __DIR__ . '/app_http.php';
 use Workerman\Protocols\Http;
 
 $app = new App("http://0.0.0.0:2345");
