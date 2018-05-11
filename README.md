@@ -51,11 +51,10 @@ yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_6
 示例代码
 ========
 ```php
-<?php
 /////////////////////////////////// http
-
+<?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app.php';
+require_once __DIR__ . '/app_http.php';
 use Workerman\Protocols\Http;
 
 $app = new App("http://0.0.0.0:2345");
@@ -77,14 +76,12 @@ $app->get('/api', function($req){
 
 });
 
-// run all workers
 App::runAll();
 
 /////////////////////////////////// websocket
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app_ws.php';
-use Workerman\Protocols\Http;
 
 $wsapp = new WSApp("websocket://0.0.0.0:2000");
 $wsapp->count = 4;
@@ -95,6 +92,8 @@ $wsapp->on('api', function($params){
 	return $data;
 
 });
+
+WSApp::runAll();
 ```
 
 启动服务
