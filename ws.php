@@ -17,6 +17,7 @@ $ws_worker->onMessage = function($connection, $data)
 // 运行worker
 Worker::runAll();
 
+// JavaScript Client
 // var ws = new WebSocket('ws://127.0.0.1:2000');
 // ws.onopen = function(e) {
 // 	console.log("[onopen]"+e);

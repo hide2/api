@@ -105,6 +105,7 @@ Worker::runAll();
 ========
 ```
 php http.php start
+php ws.php start
 ```
 压力测试
 ```
