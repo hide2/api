@@ -18,31 +18,31 @@ class App extends Worker
 
 	public function onClientMessage($connection, $data)
 	{
-		$req = array();
-		$req['method'] = $_SERVER['REQUEST_METHOD'];
-		$req['uri'] = $_SERVER['REQUEST_URI'];
-		$req['path'] = $req['uri'];
-		$pos = stripos($req['path'],'?');
+		$req = new stdClass();
+		$req->method = $_SERVER['REQUEST_METHOD'];
+		$req->uri = $_SERVER['REQUEST_URI'];
+		$req->path = $req->uri;
+		$pos = stripos($req->path,'?');
 		if ($pos != false) {
-			$req['path'] = substr($req['path'],0,$pos);
+			$req->path = substr($req->path,0,$pos);
 		}
-		if ($req['method'] == 'GET') {
-			$req['params'] = $_GET;
-		} elseif ($req['method'] == 'POST') {
-			$req['params'] = $_POST;
+		if ($req->method == 'GET') {
+			$req->params = $_GET;
+		} elseif ($req->method == 'POST') {
+			$req->params = $_POST;
 		}
 
 		Http::header("Content-Type: application/json");
-		if ($req['method'] == 'GET') {
-			$cb = $this->map_get[$req['path']];
+		if ($req->method == 'GET') {
+			$cb = $this->map_get[$req->path];
 			if ($cb) {
 				$data = call_user_func($cb, $req);
 				$connection->send(json_encode($data));
 			} else {
 				$connection->send('404');
 			}
-		} elseif ($req['method'] == 'POST') {
-			$cb = $this->map_post[$req['path']];
+		} elseif ($req->method == 'POST') {
+			$cb = $this->map_post[$req->path];
 			if ($cb) {
 				$data = call_user_func($cb, $req);
 				$connection->send(json_encode($data));
