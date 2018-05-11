@@ -158,3 +158,5 @@ Stack trace:
 #11 F:\cloud\projects\api\http.php(27): Workerman\Worker::runAll()
 #12 {main}
 2018-05-10 16:13:44 pid:1 Worker process terminated
+2018-05-11 18:07:45 pid:1 Worker process terminated with ERROR: E_RECOVERABLE_ERROR "Object of class stdClass could not be converted to string in F:\cloud\projects\api\ws.php on line 13"
+2018-05-11 18:08:14 pid:1 Worker process terminated with ERROR: E_RECOVERABLE_ERROR "Object of class stdClass could not be converted to string in F:\cloud\projects\api\ws.php on line 14"
