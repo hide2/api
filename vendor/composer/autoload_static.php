@@ -20,6 +20,10 @@ class ComposerStaticInitfc562e949c96e978176ece499e10d8be
         array (
             'Psr\\Log\\' => 8,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'A' => 
         array (
             'Amp\\' => 4,
@@ -38,6 +42,10 @@ class ComposerStaticInitfc562e949c96e978176ece499e10d8be
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Amp\\' => 
         array (
