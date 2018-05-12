@@ -12,6 +12,9 @@ $app->onWorkerStart = function($worker) {
 };
 
 $app->get('/', function($req) {
+	global $db;
+	$all_tables = $db->query('show tables');
+	var_dump($all_tables);
 	return "666";
 });
 

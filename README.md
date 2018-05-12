@@ -25,7 +25,7 @@ Windows下安装PHP7
 去掉extension=php_curl.dll前面的分号（893 行左右）
 去掉extension=php_mbstring.dll前面的分号（903 行左右）
 去掉extension=php_openssl.dll前面的分号（907 行左右）
-去掉extension=php_pdo_sqlite.dll前面的分号（913 行左右）
+去掉extension=php_pdo_mysql.dll前面的分号（909 行左右）
 ```
 
 Linux下安装Composer
