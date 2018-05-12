@@ -6,7 +6,7 @@ $wsapp = new WSApp("websocket://0.0.0.0:2000");
 $wsapp->count = 4;
 $wsapp->name = 'ws';
 
-$wsapp->on('api', function($params){
+$wsapp->on('api', function($params) {
 	$data = array('name'=>'dad');
 	return $data;
 });

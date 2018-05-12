@@ -55,21 +55,29 @@ yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_6
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app_http.php';
+require_once __DIR__ . '/auth.php';
 
 $app = new App("http://0.0.0.0:2345");
 $app->count = 4;
 $app->name = 'http';
 
-$app->post('/', function($req){
-	return "66666";
+$app->get('/', function($req) {
+	return "666";
 });
 
-$app->get('/api', function($req){
+$app->post('/', function($req) {
+	return "666";
+});
+
+$app->before('/api', function($req) {
+	return Auth::verify_sign($req->params);
+});
+
+$app->get('/api/test', function($req) {
 	$data = array('name'=>'dad');
 	return $data;
 });
 
-// run all workers
 App::runAll();
 
 /////////////////////////////////// websocket
@@ -97,9 +105,6 @@ php ws.php start
 ```
 压力测试
 ```
-ab -n 1000000 -c 1000 -k http://localhost:2345/api
+ab -n 1000000 -c 1000 -k http://localhost:2345/
+ab -n 1000000 -c 1000 -k http://localhost:2345/api/test?key=abcdefg1234567&sign=c0f3b42d494891b203023bfc3d50af533b50b05de89b57b2f4ec50f357ba8fc0b333444be0d02b608820ba5b7de9155b5c7bb7dad9d1bb38c962322569c5b92b
 ```
-
-<!-- mysql -->
-<!-- redis -->
-<!-- rpc -->
