@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "631e987e1a028be7f48c6dc1e9be745f",
+    "content-hash": "a380dd369f3b1a10d084fa39a264c3e1",
     "packages": [
+        {
+            "name": "workerman/mysql",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/mysql.git",
+                "reference": "34ac7b3986294197c0fe8142fa450abfebdad779"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/walkor/mysql/34ac7b3986294197c0fe8142fa450abfebdad779.zip",
+                "reference": "34ac7b3986294197c0fe8142fa450abfebdad779",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "ext-pdo_mysql": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\MySQL\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Long-living MySQL connection for daemon.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "mysql",
+                "pdo",
+                "pdo_mysql"
+            ],
+            "time": "2018-03-06T06:20:23+00:00"
+        },
         {
             "name": "workerman/workerman",
             "version": "v3.5.6",

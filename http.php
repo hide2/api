@@ -7,6 +7,10 @@ $app = new App("http://0.0.0.0:2345");
 $app->count = 4;
 $app->name = 'http';
 
+$app->onWorkerStart = function($worker) {
+	require_once __DIR__ . '/db.php';
+};
+
 $app->get('/', function($req) {
 	return "666";
 });
