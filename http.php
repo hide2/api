@@ -9,6 +9,7 @@ $app->name = 'http';
 
 $app->onWorkerStart = function($worker) {
 	require_once __DIR__ . '/db.php';
+	require_once __DIR__ . '/redis.php';
 };
 
 $app->get('/', function($req) {
@@ -20,7 +21,13 @@ $app->post('/', function($req) {
 });
 
 $app->get('/db', function($req) {
-	$all_tables = DB::get_tables();
+	$all_tables = MyDB::get_tables();
+	MyRedis::set_tables($all_tables);
+	return $all_tables;
+});
+
+$app->get('/tables', function($req) {
+	$all_tables = MyRedis::get_tables();
 	return $all_tables;
 });
 
