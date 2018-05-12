@@ -10,7 +10,7 @@ date_default_timezone_set('PRC');
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 $logger = new Logger('my_logger');
-$logger->pushHandler(new StreamHandler('php://stdout'));
+$logger->pushHandler(new StreamHandler('php://stdout', Logger::WARNING));
 
 $config = \Kafka\ProducerConfig::getInstance();
 $config->setMetadataRefreshIntervalMs(10000);
