@@ -4,9 +4,9 @@
 require_once __DIR__ . '/vendor/autoload.php';
 date_default_timezone_set('PRC');
 use Monolog\Logger;
-use Monolog\Handler\StdoutHandler;
+use Monolog\Handler\StreamHandler;
 $logger = new Logger('my_logger');
-$logger->pushHandler(new StdoutHandler());
+$logger->pushHandler(new StreamHandler('php://stdout'));
 
 $config = \Kafka\ProducerConfig::getInstance();
 $config->setMetadataRefreshIntervalMs(10000);
