@@ -42,7 +42,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 Linux下安装PHP7
 ========
 ```
-yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_64 php70w-ldap.x86_64 php70w-mbstring.x86_64 php70w-mcrypt.x86_64 php70w-mysql.x86_64 php70w-pdo.x86_64 php70w-fpm -y
+yum install php70w php70w-cli php70w-common php70w-gd php70w-ldap php70w-mbstring php70w-mcrypt php70w-mysql php70w-pdo php70w-fpm php70w-pecl-redis -y
 ```
 安装Workerman的pcntl和posix扩展、event或者libevent扩展：http://doc.workerman.net/315116
 
