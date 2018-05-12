@@ -1,4 +1,6 @@
 <?php
+// bin/zookeeper-server-start.sh config/zookeeper.properties &
+// bin/kafka-server-start.sh config/server.properties &
 require_once __DIR__ . '/vendor/autoload.php';
 date_default_timezone_set('PRC');
 use Monolog\Logger;
