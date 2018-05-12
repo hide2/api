@@ -106,5 +106,5 @@ php ws.php start
 压力测试
 ```
 ab -n 1000000 -c 1000 -k http://localhost:2345/
-ab -n 1000000 -c 1000 -k http://localhost:2345/api/test?key=abcdefg1234567&sign=c0f3b42d494891b203023bfc3d50af533b50b05de89b57b2f4ec50f357ba8fc0b333444be0d02b608820ba5b7de9155b5c7bb7dad9d1bb38c962322569c5b92b
+ab -n 1000000 -c 1000 -k "http://localhost:2345/api/test?key=abcdefg1234567&sign=c0f3b42d494891b203023bfc3d50af533b50b05de89b57b2f4ec50f357ba8fc0b333444be0d02b608820ba5b7de9155b5c7bb7dad9d1bb38c962322569c5b92b"
 ```
