@@ -8,4 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Workerman\\MySQL\\' => array($vendorDir . '/workerman/mysql/src'),
     'Workerman\\' => array($vendorDir . '/workerman/workerman'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Amp\\' => array($vendorDir . '/amphp/amp/lib'),
 );
