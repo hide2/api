@@ -23,7 +23,7 @@ $config->setProduceInterval(500);
 $producer = new \Kafka\Producer();
 $producer->setLogger($logger);
 
-for($i = 0; $i < 100; $i++) {
+for($i = 0; $i < 10; $i++) {
     $producer->send([
         [
             'topic' => 'test',
