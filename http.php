@@ -12,13 +12,16 @@ $app->onWorkerStart = function($worker) {
 };
 
 $app->get('/', function($req) {
-	global $db;
-	$all_tables = $db->query('show tables');
-	return $all_tables;
+	return "666";
 });
 
 $app->post('/', function($req) {
 	return "666";
+});
+
+$app->get('/db', function($req) {
+	$all_tables = DB::get_tables();
+	return $all_tables;
 });
 
 $app->before('/api', function($req) {
