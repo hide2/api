@@ -1,8 +1,20 @@
 nginx
 ========
 ```
+#Mac
 brew install nginx
 vi /usr/local/etc/nginx/nginx.conf
+nginx
+nginx -t
+nginx -s reload
+
+#CentOS
+sudo yum install -y nginx
+vi /etc/nginx/nginx.conf
+systemctl start nginx.service
+systemctl enable nginx.service
+nginx -t
+nginx -s reload
 ```
 
 sign
