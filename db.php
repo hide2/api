@@ -1,6 +1,6 @@
 <?php
 global $db;
-$db = new Workerman\MySQL\Connection('127.0.0.1', '3306', 'user', 'password', 'database');
+$db = new Workerman\MySQL\Connection('127.0.0.1', '3306', 'root', '', 'mysql');
 
 class MyDB {
 	public static function get_tables() {

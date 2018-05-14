@@ -4,15 +4,6 @@ High performance api service
 
 单服开10+Worker，轻松支撑C100K请求
 
-Windows下安装Composer
-========
-```
-下载并执行安装
-https://getcomposer.org/Composer-Setup.exe
-使用中国镜像
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
-```
-
 Windows下安装PHP7
 ========
 ```
@@ -28,11 +19,44 @@ Windows下安装PHP7
 去掉extension=php_pdo_mysql.dll前面的分号（909 行左右）
 ```
 
-Linux下安装Composer
+Windows下安装Composer
 ========
 ```
-更新yum安装包
-rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
+下载并执行安装
+https://getcomposer.org/Composer-Setup.exe
+使用中国镜像
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
+
+Mac下安装PHP7
+========
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew untap homebrew/php
+brew uninstall php
+brew upgrade
+brew clenaup
+brew prune
+brew install autoconf
+brew install php
+```
+
+Mac下安装MySQL/Redis
+========
+```
+brew install mysql
+brew services start mysql
+brew install redis
+brew services start redis
+git clone https://github.com/phpredis/phpredis.git
+cd phpredis && phpize && ./configure && make && make install
+echo "extension=redis.so" > /usr/local/etc/php/7.2/conf.d/redis.ini
+```
+
+Mac下安装Composer
+========
+```
 安装composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
@@ -47,6 +71,17 @@ yum install php70w php70w-cli php70w-common php70w-gd php70w-ldap php70w-mbstrin
 安装Workerman的pcntl和posix扩展、event或者libevent扩展：http://doc.workerman.net/315116
 
 内核参数调优：http://doc.workerman.net/315302
+
+Linux下安装Composer
+========
+```
+更新yum安装包
+rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
+安装composer
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
 
 示例代码
 ========
