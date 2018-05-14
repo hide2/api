@@ -1,15 +1,22 @@
-########################### nginx
+nginx
+========
+```
 brew install nginx
 vi /usr/local/etc/nginx/nginx.conf
+```
 
-########################### sign
+sign
+========
+```
 openssl genrsa -des3 -out ssl.key 1024
 openssl rsa -in ssl.key -out test.key
 openssl req -new -key test.key -out test.csr
 openssl x509 -req -days 3650 -in test.csr -signkey test.key -out test.crt
+```
 
-########################### https
-
+https
+========
+```
 	#listen 443;
     #ssl on;
     #ssl_certificate /Users/hide2/projects/nginx/test.crt;
@@ -23,8 +30,10 @@ openssl x509 -req -days 3650 -in test.csr -signkey test.key -out test.crt
             proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
             proxy_pass         https://www.xxx.com;
         }
+```
 
 ########################### websocket
+```
     map $http_upgrade $connection_upgrade {
         default upgrade;
         '' close;
@@ -43,3 +52,4 @@ openssl x509 -req -days 3650 -in test.csr -signkey test.key -out test.crt
             proxy_set_header Connection $connection_upgrade;
         }
     }
+```
