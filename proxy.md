@@ -32,7 +32,8 @@ https
         }
 ```
 
-########################### websocket
+websocket
+========
 ```
     map $http_upgrade $connection_upgrade {
         default upgrade;
