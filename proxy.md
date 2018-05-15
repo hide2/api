@@ -3,48 +3,43 @@ nginx
 ```
 #Mac
 brew install nginx
-vi /usr/local/etc/nginx/nginx.conf
 nginx
 nginx -t
 nginx -s reload
+vi /usr/local/etc/nginx/nginx.conf
 
 #CentOS
 sudo yum install -y nginx
-vi /etc/nginx/nginx.conf
 systemctl start nginx.service
 systemctl enable nginx.service
 nginx -t
 nginx -s reload
+vi /etc/nginx/nginx.conf
 ```
 
-sign
+AWS
+========
+1. CloudFront serves your content over HTTPS only to clients that support SNI. Older browsers and other clients that do not support SNI can not access your content over HTTPS.
+2. NLB use http instead of https
+
+proxy https
 ========
 ```
-openssl genrsa -des3 -out ssl.key 1024
-openssl rsa -in ssl.key -out test.key
-openssl req -new -key test.key -out test.csr
-openssl x509 -req -days 3650 -in test.csr -signkey test.key -out test.crt
-```
-
-https
-========
-```
-	#listen 443;
-    #ssl on;
-    #ssl_certificate /Users/hide2/projects/nginx/test.crt;
-    #ssl_certificate_key /Users/hide2/projects/nginx/test.key;
-    #ssl_session_timeout 5m;
-
-	location / {
-            proxy_redirect     off;
+    server {
+        listen 80;
+        ssl on;
+        ssl_certificate      cert/xxx.pem;
+        ssl_certificate_key  cert/xxx.key;
+        location / {
+            proxy_pass         https://www.xxx.com;
             proxy_set_header   Host             $host;
             proxy_set_header   X-Real-IP        $remote_addr;
             proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-            proxy_pass         https://www.xxx.com;
         }
+    }
 ```
 
-websocket
+proxy websocket
 ========
 ```
     map $http_upgrade $connection_upgrade {
@@ -52,14 +47,13 @@ websocket
         '' close;
     }
  
-    upstream websocket {
-        server 127.0.0.1:2000;
-    }
- 
     server {
-        listen 3000;
+        listen 443;
+        ssl on;
+        ssl_certificate      cert/xxx.pem;
+        ssl_certificate_key  cert/xxx.key;
         location / {
-            proxy_pass http://websocket;
+            proxy_pass https://ws.xxx.com;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection $connection_upgrade;
