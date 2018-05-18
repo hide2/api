@@ -136,13 +136,19 @@ App::runAll();
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app_ws.php';
 
-$wsapp = new WSApp("websocket://0.0.0.0:2000");
+$wsapp = new WSApp("websocket://0.0.0.0:2000/");
 $wsapp->count = 4;
 $wsapp->name = 'ws';
 
-$wsapp->on('api', function($params){
-	$data = array('name'=>'dad');
-	return $data;
+$wsapp->on('/', function($params) {
+	return array('code' => '200');
+});
+
+$wsapp->on('/api', function($params) {
+	if ($params->action == 'subscribe') {
+		return $params;
+	}
+	return array('code' => '404');
 });
 
 WSApp::runAll();
