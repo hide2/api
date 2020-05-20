@@ -38,7 +38,7 @@ class Http
     {
         if (!strpos($recv_buffer, "\r\n\r\n")) {
             // Judge whether the package length exceeds the limit.
-            if (strlen($recv_buffer) >= TcpConnection::$maxPackageSize) {
+            if (strlen($recv_buffer) >= $connection::$maxPackageSize) {
                 $connection->close();
                 return 0;
             }
@@ -106,6 +106,7 @@ class Http
             'HTTP_ACCEPT_ENCODING' => '',
             'HTTP_COOKIE'          => '',
             'HTTP_CONNECTION'      => '',
+            'CONTENT_TYPE'         => '',
             'REMOTE_ADDR'          => '',
             'REMOTE_PORT'          => '0',
             'REQUEST_TIME'         => time()
@@ -174,9 +175,6 @@ class Http
                     case 'application/x-www-form-urlencoded':
                         parse_str($http_body, $_POST);
                         break;
-                    case 'application/json':
-                        $_POST = json_decode($http_body, true);
-                        break;
                 }
             }
         }
@@ -184,9 +182,9 @@ class Http
         // Parse other HTTP action parameters
         if ($_SERVER['REQUEST_METHOD'] != 'GET' && $_SERVER['REQUEST_METHOD'] != "POST") {
             $data = array();
-            if ($_SERVER['HTTP_CONTENT_TYPE'] === "application/x-www-form-urlencoded") {
+            if ($_SERVER['CONTENT_TYPE'] === "application/x-www-form-urlencoded") {
                 parse_str($http_body, $data);
-            } elseif ($_SERVER['HTTP_CONTENT_TYPE'] === "application/json") {
+            } elseif ($_SERVER['CONTENT_TYPE'] === "application/json") {
                 $data = json_decode($http_body, true);
             }
             $_REQUEST = array_merge($_REQUEST, $data);
@@ -204,8 +202,13 @@ class Http
             $_SERVER['QUERY_STRING'] = '';
         }
 
-        // REQUEST
-        $_REQUEST = array_merge($_GET, $_POST, $_REQUEST);
+        if (is_array($_POST)) {
+            // REQUEST
+            $_REQUEST = array_merge($_GET, $_POST, $_REQUEST);
+        } else {
+            // REQUEST
+            $_REQUEST = array_merge($_GET, $_REQUEST);
+        }
 
         // REMOTE_ADDR REMOTE_PORT
         $_SERVER['REMOTE_ADDR'] = $connection->getRemoteIp();
@@ -248,7 +251,7 @@ class Http
         }
 
         // header
-        $header .= "Server: X/" . Worker::VERSION . "\r\nContent-Length: " . strlen($content) . "\r\n\r\n";
+        $header .= "Server: workerman/" . Worker::VERSION . "\r\nContent-Length: " . strlen($content) . "\r\n\r\n";
 
         // save session
         self::sessionWriteClose();
@@ -347,13 +350,12 @@ class Http
     /**
      * sessionCreateId
      *
-     * @param string|prefix  $prefix
-     *
      * @return string
      */
-    public static function sessionCreateId($prefix = null)
+    public static function sessionCreateId()
     {
-        return session_create_id($prefix);
+        mt_srand();
+        return bin2hex(pack('d', microtime(true)) . pack('N',mt_rand(0, 2147483647)));
     }
 
     /**
@@ -437,7 +439,7 @@ class Http
         self::tryGcSessions();
 
         if (HttpCache::$instance->sessionStarted) {
-            echo "already sessionStarted\n";
+            Worker::safeEcho("already sessionStarted\n");
             return true;
         }
         HttpCache::$instance->sessionStarted = true;

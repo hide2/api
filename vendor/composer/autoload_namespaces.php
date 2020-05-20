@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Kafka\\' => array($vendorDir . '/nmred/kafka-php/src'),
+    'Requests' => array($vendorDir . '/rmccue/requests/library'),
 );

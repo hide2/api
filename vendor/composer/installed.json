@@ -1,31 +1,87 @@
 [
     {
-        "name": "workerman/workerman",
-        "version": "v3.5.6",
-        "version_normalized": "3.5.6.0",
+        "name": "rmccue/requests",
+        "version": "v1.7.0",
+        "version_normalized": "1.7.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/walkor/Workerman.git",
-            "reference": "46a77574a5ca39def6dec51ddf350cf50daab309"
+            "url": "https://github.com/rmccue/Requests.git",
+            "reference": "87932f52ffad70504d93f04f15690cf16a089546"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/walkor/Workerman/46a77574a5ca39def6dec51ddf350cf50daab309.zip",
-            "reference": "46a77574a5ca39def6dec51ddf350cf50daab309",
+            "url": "https://api.github.com/repos/rmccue/Requests/zipball/87932f52ffad70504d93f04f15690cf16a089546",
+            "reference": "87932f52ffad70504d93f04f15690cf16a089546",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3"
+            "php": ">=5.2"
         },
-        "suggest": {
-            "ext-event": "For better performance. "
+        "require-dev": {
+            "requests/test-server": "dev-master"
         },
-        "time": "2018-04-11T11:25:52+00:00",
+        "time": "2016-10-13T00:11:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Requests": "library/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "ISC"
+        ],
+        "authors": [
+            {
+                "name": "Ryan McCue",
+                "homepage": "http://ryanmccue.info"
+            }
+        ],
+        "description": "A HTTP library written in PHP, for human beings.",
+        "homepage": "http://github.com/rmccue/Requests",
+        "keywords": [
+            "curl",
+            "fsockopen",
+            "http",
+            "idna",
+            "ipv6",
+            "iri",
+            "sockets"
+        ]
+    },
+    {
+        "name": "smi2/phpclickhouse",
+        "version": "1.2.4",
+        "version_normalized": "1.2.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/smi2/phpClickHouse.git",
+            "reference": "67fbc582b1673d7d7e912221aa2de5293faf45bd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/smi2/phpClickHouse/zipball/67fbc582b1673d7d7e912221aa2de5293faf45bd",
+            "reference": "67fbc582b1673d7d7e912221aa2de5293faf45bd",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "doctrine/coding-standard": "^4.0",
+            "php": "^7.1",
+            "phpstan/phpstan": "^0.9.2",
+            "phpunit/phpunit": "^7",
+            "sebastian/comparator": "~3.0"
+        },
+        "time": "2018-09-11T19:13:55+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Workerman\\": "./"
+                "ClickHouseDB\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -34,17 +90,21 @@
         ],
         "authors": [
             {
-                "name": "walkor",
-                "email": "walkor@workerman.net",
-                "homepage": "http://www.workerman.net",
-                "role": "Developer"
+                "name": "Igor Strykhar",
+                "email": "isublimity@gmail.com",
+                "homepage": "https://github.com/isublimity"
             }
         ],
-        "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
-        "homepage": "http://www.workerman.net",
+        "description": "PHP ClickHouse Client",
+        "homepage": "https://github.com/smi2/phpClickHouse",
         "keywords": [
-            "asynchronous",
-            "event-loop"
+            "clickhouse",
+            "client",
+            "curl",
+            "driver",
+            "http",
+            "http client",
+            "php"
         ]
     },
     {
@@ -58,7 +118,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/walkor/mysql/34ac7b3986294197c0fe8142fa450abfebdad779.zip",
+            "url": "https://api.github.com/repos/walkor/mysql/zipball/34ac7b3986294197c0fe8142fa450abfebdad779",
             "reference": "34ac7b3986294197c0fe8142fa450abfebdad779",
             "shasum": ""
         },
@@ -88,218 +148,32 @@
         ]
     },
     {
-        "name": "amphp/amp",
-        "version": "v1.2.2",
-        "version_normalized": "1.2.2.0",
+        "name": "workerman/workerman",
+        "version": "v3.5.14",
+        "version_normalized": "3.5.14.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/amphp/amp.git",
-            "reference": "4f2161da5f68f274f116985635aea63b5c0f54d2"
+            "url": "https://github.com/walkor/Workerman.git",
+            "reference": "6d70996b2b4ec94000e807246aca0e861c9601d8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/amphp/amp/4f2161da5f68f274f116985635aea63b5c0f54d2.zip",
-            "reference": "4f2161da5f68f274f116985635aea63b5c0f54d2",
+            "url": "https://api.github.com/repos/walkor/Workerman/zipball/6d70996b2b4ec94000e807246aca0e861c9601d8",
+            "reference": "6d70996b2b4ec94000e807246aca0e861c9601d8",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5"
-        },
-        "require-dev": {
-            "fabpot/php-cs-fixer": "~1.9",
-            "phpunit/phpunit": "~4.8"
-        },
-        "time": "2016-05-12T12:54:59+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Amp\\": "lib/"
-            },
-            "files": [
-                "lib/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniel Lowrey",
-                "email": "rdlowrey@php.net",
-                "role": "Creator / Lead Developer"
-            }
-        ],
-        "description": "A non-blocking concurrency framework for PHP applications",
-        "homepage": "https://github.com/amphp/amp",
-        "keywords": [
-            "async",
-            "concurrency",
-            "event",
-            "non-blocking",
-            "promise"
-        ]
-    },
-    {
-        "name": "psr/log",
-        "version": "1.0.2",
-        "version_normalized": "1.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/php-fig/log.git",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2016-10-10T12:19:37+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Psr\\Log\\": "Psr/Log/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }
-        ],
-        "description": "Common interface for logging libraries",
-        "homepage": "https://github.com/php-fig/log",
-        "keywords": [
-            "log",
-            "psr",
-            "psr-3"
-        ]
-    },
-    {
-        "name": "nmred/kafka-php",
-        "version": "v0.2.0.8",
-        "version_normalized": "0.2.0.8",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/weiboad/kafka-php.git",
-            "reference": "d5b395aeb9d069dce49fc1dceff0a6f45750d981"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/weiboad/kafka-php/d5b395aeb9d069dce49fc1dceff0a6f45750d981.zip",
-            "reference": "d5b395aeb9d069dce49fc1dceff0a6f45750d981",
-            "shasum": ""
-        },
-        "require": {
-            "amphp/amp": "v1.2.2",
-            "php": ">=5.5",
-            "psr/log": "1.0.2"
-        },
-        "require-dev": {
-            "kmelia/monolog-stdout-handler": "1.2.1",
-            "monolog/monolog": "1.22.1",
-            "phpunit/phpcov": "*",
-            "phpunit/phpunit": "~4.0",
-            "satooshi/php-coveralls": "dev-master"
-        },
-        "time": "2017-10-23T09:33:08+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Kafka\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "description": "Kafka client for php",
-        "homepage": "http://www.swanlinux.net",
-        "keywords": [
-            "client",
-            "kafka"
-        ]
-    },
-    {
-        "name": "monolog/monolog",
-        "version": "1.23.0",
-        "version_normalized": "1.23.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/Seldaek/monolog/fd8c787753b3a2ad11bc60c063cff1358a32a3b4.zip",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0",
-            "psr/log": "~1.0"
-        },
-        "provide": {
-            "psr/log-implementation": "1.0.0"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "^2.4.9 || ^3.0",
-            "doctrine/couchdb": "~1.0@dev",
-            "graylog2/gelf-php": "~1.0",
-            "jakub-onderka/php-parallel-lint": "0.9",
-            "php-amqplib/php-amqplib": "~2.4",
-            "php-console/php-console": "^3.1.3",
-            "phpunit/phpunit": "~4.5",
-            "phpunit/phpunit-mock-objects": "2.3.0",
-            "ruflin/elastica": ">=0.90 <3.0",
-            "sentry/sentry": "^0.13",
-            "swiftmailer/swiftmailer": "^5.3|^6.0"
+            "php": ">=5.3"
         },
         "suggest": {
-            "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-            "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-            "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-            "ext-mongo": "Allow sending log messages to a MongoDB server",
-            "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-            "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
-            "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-            "php-console/php-console": "Allow sending log messages to Google Chrome",
-            "rollbar/rollbar": "Allow sending log messages to Rollbar",
-            "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-            "sentry/sentry": "Allow sending log messages to a Sentry server"
+            "ext-event": "For better performance. "
         },
-        "time": "2017-06-19T01:22:40+00:00",
+        "time": "2018-08-04T12:41:54+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Monolog\\": "src/Monolog"
+                "Workerman\\": "./"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -308,17 +182,17 @@
         ],
         "authors": [
             {
-                "name": "Jordi Boggiano",
-                "email": "j.boggiano@seld.be",
-                "homepage": "http://seld.be"
+                "name": "walkor",
+                "email": "walkor@workerman.net",
+                "homepage": "http://www.workerman.net",
+                "role": "Developer"
             }
         ],
-        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-        "homepage": "http://github.com/Seldaek/monolog",
+        "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+        "homepage": "http://www.workerman.net",
         "keywords": [
-            "log",
-            "logging",
-            "psr-3"
+            "asynchronous",
+            "event-loop"
         ]
     }
 ]
