@@ -19,15 +19,6 @@ Windows下安装PHP7
 去掉extension=php_pdo_mysql.dll前面的分号（909 行左右）
 ```
 
-Windows下安装Composer
-========
-```
-下载并执行安装
-https://getcomposer.org/Composer-Setup.exe
-使用中国镜像
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
-```
-
 Mac下安装PHP7
 ========
 ```
@@ -42,46 +33,29 @@ brew install autoconf
 brew install php
 ```
 
-Mac下安装MySQL/Redis
+CentOS7下部署
 ========
 ```
-brew install mysql
-brew services start mysql
-brew install redis
-brew services start redis
-git clone https://github.com/phpredis/phpredis.git
-cd phpredis && phpize && ./configure && make && make install
-echo "extension=redis.so" > /usr/local/etc/php/7.2/conf.d/redis.ini
+sudo yum -y install epel-release
+sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+sudo yum -y install git
+sudo yum install php71w php71w-devel php71w-cli php71w-common php71w-gd php71w-ldap php71w-mbstring php71w-mcrypt php71w-mysql php71w-pdo php71w-fpm php71w-pecl-redis -y
+
+cd ~
+sudo yum install gcc openssl openssl-devel libevent libevent-devel
+sudo pecl install event-2.3.0
+sudo vi /etc/php.d/sockets.ini
+extension=sockets.so
+extension=event.so
+
+sudo yum install redis
+sudo systemctl enable redis
+sudo systemctl start redis
 ```
 
-Mac下安装Composer
-========
-```
-安装composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
-```
-
-Linux下安装PHP7
-========
-```
-yum install php70w php70w-cli php70w-common php70w-gd php70w-ldap php70w-mbstring php70w-mcrypt php70w-mysql php70w-pdo php70w-fpm php70w-pecl-redis -y
-```
 安装Workerman的pcntl和posix扩展、event或者libevent扩展：http://doc.workerman.net/315116
 
 内核参数调优：http://doc.workerman.net/315302
-
-Linux下安装Composer
-========
-```
-更新yum安装包
-rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
-安装composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
-```
 
 示例代码
 ========
@@ -90,44 +64,60 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app_http.php';
-require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/config.php';
+ini_set("precision", "-1");
+ini_set("serialize_precision", "-1");
 
-$app = new App("http://0.0.0.0:2345");
-$app->count = 4;
-$app->name = 'http';
+$app = new App("http://0.0.0.0:8888");
+$app->count = 8;
+$app->name = 'api';
 
-$app->onWorkerStart = function($worker) {
+$app->onWorkerStart = function ($worker) {
+	require_once __DIR__ . '/auth.php';
 	require_once __DIR__ . '/db.php';
-	require_once __DIR__ . '/redis.php';
+	require_once __DIR__ . '/clickhouse.php';
+	require_once __DIR__ . '/cache.php';
+	require_once __DIR__ . '/kafka.php';
+	require_once __DIR__ . '/config.php';
+	ini_set("precision", "-1");
+	ini_set("serialize_precision", "-1");
+
+	echo "[" . date('Y-m-d H:i:s') . "] Worker start[" . $worker->id . "]\n";
 };
 
-$app->get('/', function($req) {
-	return "666";
+///////////////////////////////// API接口定义开始
+
+$app->get('/', function ($req) {
+	return 'OK';
 });
 
-$app->post('/', function($req) {
-	return "666";
+$app->post('/', function ($req) {
+	return 'OK';
 });
 
-$app->get('/db', function($req) {
-	$all_tables = MyDB::get_tables();
-	MyRedis::set_tables($all_tables);
-	return $all_tables;
+$app->get('/health/check', function ($req) {
+	return 'OK';
 });
 
-$app->get('/tables', function($req) {
-	$all_tables = MyRedis::get_tables();
-	return $all_tables;
+$app->before('/api', function ($req) {
+	return Auth::verify_api($req);
 });
 
-$app->before('/api', function($req) {
-	return Auth::verify_sign($req->params);
+$app->get('/tables', function ($req) {
+	if (CACHE::exists('tables')) {
+		return json_decode(CACHE::get('tables'));
+	} else {
+		$tables = DB::query('show tables');
+		CACHE::set('tables', json_encode($tables), 5);
+		return json_decode(CACHE::get('tables'));
+	}
 });
 
-$app->get('/api/test', function($req) {
-	$data = array('name'=>'dad');
-	return $data;
-});
+///////////////////////////////// API接口定义结束
+
+
+App::$logFile = './logs/workerman_api.log';
+App::$stdoutFile = './logs/api.log';
 
 App::runAll();
 
@@ -157,11 +147,11 @@ WSApp::runAll();
 启动服务
 ========
 ```
-php http.php start
+mkdir logs
+php api.php start
 php ws.php start
 ```
 压力测试
 ```
-ab -n 1000000 -c 1000 -k http://localhost:2345/
-ab -n 1000000 -c 1000 -k "http://localhost:2345/api/test?key=abcdefg1234567&sign=c0f3b42d494891b203023bfc3d50af533b50b05de89b57b2f4ec50f357ba8fc0b333444be0d02b608820ba5b7de9155b5c7bb7dad9d1bb38c962322569c5b92b"
+ab -n 1000000 -c 1000 -k http://localhost:8888/
 ```

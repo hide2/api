@@ -1744,6 +1744,9 @@ class Connection
                     $this->sQuery->bindParam($parameters[0], $parameters[1]);
                 }
             }
+            if (defined('DB_LOG_SQL') && DB_LOG_SQL) {
+                echo "[".date('Y-m-d H:i:s')."][SQL] ".$this->sQuery->queryString."\n";
+            }
             $this->success = $this->sQuery->execute();
         } catch (PDOException $e) {
             // 服务端断开时重连一次
