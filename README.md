@@ -120,28 +120,6 @@ App::$logFile = './logs/workerman_api.log';
 App::$stdoutFile = './logs/api.log';
 
 App::runAll();
-
-/////////////////////////////////// websocket
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app_ws.php';
-
-$wsapp = new WSApp("websocket://0.0.0.0:2000/");
-$wsapp->count = 4;
-$wsapp->name = 'ws';
-
-$wsapp->on('/', function($params) {
-	return array('code' => '200');
-});
-
-$wsapp->on('/api', function($params) {
-	if ($params->action == 'subscribe') {
-		return $params;
-	}
-	return array('code' => '404');
-});
-
-WSApp::runAll();
 ```
 
 启动服务
@@ -149,7 +127,6 @@ WSApp::runAll();
 ```
 mkdir logs
 php api.php start
-php ws.php start
 ```
 压力测试
 ```
