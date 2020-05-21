@@ -58,7 +58,7 @@ class CACHE {
 
 	public static function mSet($kvs) {
 		if (defined('REDIS_LOG') && REDIS_LOG) {
-			echo "[".date('Y-m-d H:i:s')."][REDIS][mSet] ".implode('_', $kvs)."\n";
+			echo "[".date('Y-m-d H:i:s')."][REDIS][mSet] ".implode('_', array_keys($kvs))."\n";
 		}
 		CACHE::getInstance()->mSet($kvs);
 	}
