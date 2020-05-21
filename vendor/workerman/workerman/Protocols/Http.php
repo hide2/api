@@ -97,7 +97,7 @@ class Http
             'REQUEST_METHOD'       => '',
             'REQUEST_URI'          => '',
             'SERVER_PROTOCOL'      => '',
-            'SERVER_SOFTWARE'      => 'workerman/'.Worker::VERSION,
+            'SERVER_SOFTWARE'      => 'X/'.Worker::VERSION,
             'SERVER_NAME'          => '',
             'HTTP_HOST'            => '',
             'HTTP_USER_AGENT'      => '',
@@ -251,7 +251,7 @@ class Http
         }
 
         // header
-        $header .= "Server: workerman/" . Worker::VERSION . "\r\nContent-Length: " . strlen($content) . "\r\n\r\n";
+        $header .= "Server: X/" . Worker::VERSION . "\r\nContent-Length: " . strlen($content) . "\r\n\r\n";
 
         // save session
         self::sessionWriteClose();

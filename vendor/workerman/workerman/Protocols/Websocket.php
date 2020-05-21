@@ -417,7 +417,7 @@ class Websocket implements \Workerman\Protocols\ProtocolInterface
                 }
             }
             if (!$has_server_header) {
-                $handshake_message .= "Server: workerman/".Worker::VERSION."\r\n";
+                $handshake_message .= "Server: X/".Worker::VERSION."\r\n";
             }
             $handshake_message .= "\r\n";
             // Send handshake response.
