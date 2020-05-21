@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/config.php';
-
 class ClickHouse
 {
     private static  $_instance;

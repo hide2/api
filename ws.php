@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app_ws.php';
+require_once __DIR__ . '/lib/app_ws.php';
 
 $wsapp = new WSApp("websocket://0.0.0.0:2000/");
 $wsapp->count = 4;

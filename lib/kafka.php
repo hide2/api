@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/config.php';
-
 class Kafka
 {
     private static $brokers = KAFKA_BROKERS;

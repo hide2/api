@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app_http.php';
+require_once __DIR__ . '/lib/app_http.php';
 require_once __DIR__ . '/config.php';
 ini_set("precision", "-1");
 ini_set("serialize_precision", "-1");
@@ -10,11 +10,11 @@ $app->count = 8;
 $app->name = 'api';
 
 $app->onWorkerStart = function ($worker) {
-	require_once __DIR__ . '/auth.php';
-	require_once __DIR__ . '/db.php';
-	require_once __DIR__ . '/clickhouse.php';
-	require_once __DIR__ . '/cache.php';
-	require_once __DIR__ . '/kafka.php';
+	require_once __DIR__ . '/lib/auth.php';
+	require_once __DIR__ . '/lib/db.php';
+	require_once __DIR__ . '/lib/clickhouse.php';
+	require_once __DIR__ . '/lib/cache.php';
+	require_once __DIR__ . '/lib/kafka.php';
 	require_once __DIR__ . '/config.php';
 	ini_set("precision", "-1");
 	ini_set("serialize_precision", "-1");
