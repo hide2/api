@@ -31,6 +31,12 @@ class App extends Worker
 		$this->map_post[$path] = $callback;
 	}
 
+	public function any($path, callable $callback)
+	{
+		$this->map_get[$path] = $callback;
+		$this->map_post[$path] = $callback;
+	}
+
 	public function html($path, callable $callback)
 	{
 		$this->map_html[$path] = $callback;
@@ -122,7 +128,7 @@ class App extends Worker
 				$connection->send(json_encode(['code' => 404, 'message' => 'Not Found']));
 			}
 		} else {
-			$connection->send('ok');
+			$connection->send('404');
 		}
 
 		// after
