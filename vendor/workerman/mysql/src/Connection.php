@@ -1214,9 +1214,9 @@ class Connection
         }
 
         if ($this->order_asc) {
-            return ' ORDER BY' . $this->indentCsv($this->order_by) . ' ASC';
+            return ' ORDER BY ' . implode(' ASC, ', $this->order_by) . ' ASC';
         } else {
-            return ' ORDER BY' . $this->indentCsv($this->order_by) . ' DESC';
+            return ' ORDER BY ' . implode(' DESC, ', $this->order_by) . ' DESC';
         }
     }
 
